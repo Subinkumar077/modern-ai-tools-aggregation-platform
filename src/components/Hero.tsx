@@ -26,6 +26,13 @@ const Hero: React.FC = () => {
     }
   };
 
+  const scrollToTools = () => {
+    const toolsSection = document.querySelector('[data-tools-section]');
+    if (toolsSection) {
+      toolsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50 dark:from-gray-900 dark:via-purple-900/20 dark:to-blue-900/20">
       {/* Background Pattern */}
@@ -58,23 +65,16 @@ const Hero: React.FC = () => {
 
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
+            className="flex justify-center mb-16"
           >
             <motion.button
+              onClick={scrollToTools}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-2"
             >
               <span>Explore AI Tools</span>
               <ArrowRight className="h-5 w-5" />
-            </motion.button>
-            
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 border-2 border-purple-600 text-purple-600 dark:text-purple-400 font-semibold rounded-xl hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-all duration-300"
-            >
-              Submit Your Tool
             </motion.button>
           </motion.div>
 
